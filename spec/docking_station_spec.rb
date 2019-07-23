@@ -1,4 +1,4 @@
-require_relative '../lib/borris-bike.rb'
+require_relative '../lib/docking_station.rb'
 
   describe DockingStation do
   it 'Instantiates a new Docking station using the DockingStation method' do
