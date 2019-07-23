@@ -1,8 +1,8 @@
+require_relative '../lib/bike'
 
 class DockingStation
   def release_bike
-    puts "Bike was release"
-    return 1
+    return Bike.new
   end
 end
 
