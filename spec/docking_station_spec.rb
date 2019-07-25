@@ -2,6 +2,7 @@ require_relative '../lib/docking_station.rb'
 require_relative '../lib/bike.rb'
 
 describe DockingStation do
+=begin
   it 'Instantiates a new Docking station using the DockingStation method' do
     docking_station = DockingStation.new
     expect( docking_station).to be_kind_of(DockingStation)
@@ -34,12 +35,20 @@ describe DockingStation do
     docking_station.dock(random_bike)
     expect(docking_station.bike).to eq(random_bike)
   end
+=end
 
   it 'Error message should be raised when asking empty docking station to release bike' do
     docking_station = DockingStation.new
     if docking_station.bike == nil
       expect{docking_station.release_bike}.to raise_error
     end
+  end
+
+  it 'Check that error is raised when the "dock" method is executed whilst the bike capacity is already full' do
+    docking_station = DockingStation.new
+    bike = Bike.new
+    docking_station.dock(bike)
+    expect{docking_station.dock(bike)}.to raise_error
   end
 
 end
