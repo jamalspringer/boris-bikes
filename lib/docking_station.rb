@@ -6,7 +6,8 @@ class DockingStation
   @bike = nil
   end
   def release_bike
-    return Bike.new
+    raise 'Docking station is empty' if @bike == nil
+    Bike.new
   end
 
   def dock(bike)

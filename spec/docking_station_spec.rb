@@ -35,4 +35,11 @@ describe DockingStation do
     expect(docking_station.bike).to eq(random_bike)
   end
 
+  it 'Error message should be raised when asking empty docking station to release bike' do
+    docking_station = DockingStation.new
+    if docking_station.bike == nil
+      expect{docking_station.release_bike}.to raise_error
+    end
+  end
+
 end
