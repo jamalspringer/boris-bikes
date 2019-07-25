@@ -22,4 +22,17 @@ describe DockingStation do
     expect( bike).to be_kind_of(Bike)
   end
 
+  it 'Test that the docking station can dock a bike i.e. the dock method exists' do
+    docking_station = DockingStation.new
+    expect( docking_station).to respond_to(:dock)
+  end
+
+  it 'Attribute "bike" is set when "dock" method is called' do
+    docking_station = DockingStation.new
+    expect(docking_station.bike).to eq(nil)
+    random_bike = Bike.new
+    docking_station.dock(random_bike)
+    expect(docking_station.bike).to eq(random_bike)
+  end
+
 end
