@@ -46,7 +46,7 @@ describe DockingStation do
 
   it 'Check that error is raised when the "dock" method is executed whilst the bike capacity is already full' do
     docking_station = DockingStation.new
-    20.times{docking_station.dock(Bike.new)}
+    (DockingStation::DEFAULT_CAPACITY).times{docking_station.dock(Bike.new)}
     expect{docking_station.dock(Bike.new)}.to raise_error
   end
 
