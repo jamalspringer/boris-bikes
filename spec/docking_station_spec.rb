@@ -39,16 +39,15 @@ describe DockingStation do
 
   it 'Error message should be raised when asking empty docking station to release bike' do
     docking_station = DockingStation.new
-    if docking_station.bike == nil
+    if docking_station.bikes.size == 0
       expect{docking_station.release_bike}.to raise_error
     end
   end
 
   it 'Check that error is raised when the "dock" method is executed whilst the bike capacity is already full' do
     docking_station = DockingStation.new
-    bike = Bike.new
-    docking_station.dock(bike)
-    expect{docking_station.dock(bike)}.to raise_error
+    20.times{docking_station.dock(Bike.new)}
+    expect{docking_station.dock(Bike.new)}.to raise_error
   end
 
 end
